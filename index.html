@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeFax - Every House Has a Past</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .neu-brutal {
+            border: 3px solid #000;
+            box-shadow: 5px 5px 0px #000;
+            transition: all 0.2s ease;
+        }
+        .neu-brutal:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #000;
+        }
+        body {
+            background-color: #F0F7FF;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen">
+    <nav class="bg-white neu-brutal m-4 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold">HomeFax</h1>
+            <div class="space-x-4">
+                <button class="neu-brutal px-4 py-2 bg-yellow-300">Login</button>
+                <button class="neu-brutal px-4 py-2 bg-blue-300">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4">
+        <section class="text-center py-12">
+            <h2 class="text-5xl font-bold mb-6">Because Every House Has a Past</h2>
+            <p class="text-xl mb-8">Get comprehensive property history reports instantly</p>
+            
+            <div class="max-w-md mx-auto neu-brutal bg-white p-6 mb-12">
+                <input type="text" placeholder="Enter Property Address" class="w-full p-3 mb-4 neu-brutal">
+                <button class="w-full bg-green-300 p-3 neu-brutal" onclick="searchProperty()">Search Property</button>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="neu-brutal bg-pink-200 p-6">
+                <h3 class="text-2xl font-bold mb-4">Upload Home Report</h3>
+                <p class="mb-4">Share your property's history and help others make informed decisions.</p>
+                <button class="neu-brutal bg-white px-4 py-2" onclick="uploadReport()">Upload Now</button>
+            </div>
+            
+            <div class="neu-brutal bg-blue-200 p-6">
+                <h3 class="text-2xl font-bold mb-4">Purchase Report</h3>
+                <p class="mb-4">Get detailed insights about any property for just $29.99</p>
+                <button class="neu-brutal bg-white px-4 py-2" onclick="initiatePayment()">Buy Report</button>
+            </div>
+        </section>
+
+        <section class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="neu-brutal bg-white p-6">
+                <i class="bi bi-shield-check text-4xl"></i>
+                <h4 class="text-xl font-bold my-3">Secure Blockchain</h4>
+                <p>Tamper-proof records ensure data integrity</p>
+            </div>
+            <div class="neu-brutal bg-white p-6">
+                <i class="bi bi-clock-history text-4xl"></i>
+                <h4 class="text-xl font-bold my-3">Complete History</h4>
+                <p>Comprehensive property lifecycle data</p>
+            </div>
+            <div class="neu-brutal bg-white p-6">
+                <i class="bi bi-graph-up text-4xl"></i>
+                <h4 class="text-xl font-bold my-3">Market Insights</h4>
+                <p>Make informed investment decisions</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white neu-brutal m-4 p-4 mt-auto">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2023 HomeFax. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const stripe = Stripe('your_publishable_key');
+
+        function searchProperty() {
+            const address = document.querySelector('input').value;
+            if (!address) {
+                alert('Please enter a property address');
+                return;
+            }
+            // Implementation for property search
+            alert('Searching for property: ' + address);
+        }
+
+        function uploadReport() {
+            // Implementation for report upload
+            alert('Upload functionality coming soon!');
+        }
+
+        async function initiatePayment() {
+            try {
+                // This would typically be handled by your backend
+                const session = { id: 'session_id' }; // Placeholder
+                alert('Payment processing would happen here with Stripe');
+            } catch (error) {
+                console.error('Payment failed:', error);
+                alert('Payment failed. Please try again.');
+            }
+        }
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
